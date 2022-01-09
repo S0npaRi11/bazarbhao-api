@@ -5,6 +5,12 @@ const pup = require('puppeteer');
 
 const router = express.Router()
 
+router.route('/')
+    .get((req,res) => {
+        const message = 'Bazarbhao API is up and running!!'
+        res.status(200).json(message)
+    })
+
 router.route('/:commodityID')
     .get(async(req,res) => {
         const URL = process.env.SCRAPING_URL;
