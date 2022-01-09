@@ -67,9 +67,10 @@ router.route('/:commodityID')
                     }
                 }
                 await browser.close()
+                console.log(data)
         
                 await res.status(200).json(data)
-            }, 3000)
+            }, 1500)
         })();
        
     })
