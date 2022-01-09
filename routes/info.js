@@ -18,7 +18,8 @@ router.route('/:commodityID')
 
         (async () =>{
             const browser = await pup.launch({
-                headless: true
+                headless: true,
+                args: ['--no-sandbox']
             });
             const page = await browser.newPage();
         
