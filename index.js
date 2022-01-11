@@ -8,7 +8,13 @@ const app = express()
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.all('/*',(req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+
+  const allowedURL = ['https://s0npari11.github.io/bazarbhao-frontend/', 'http://localhost:3000']
+  const origin = req.headers.origin
+  
+  if(allowedURL.includes(origin){
+    res.header("Access-Control-Allow-Origin", allowedURL);
+  }
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, auth-token"
