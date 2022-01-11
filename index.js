@@ -9,11 +9,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.all('/*',(req, res, next) => {
 
-  const allowedURL = ['https://s0npari11.github.io/bazarbhao-frontend/', 'http://localhost:3000']
-  const origin = req.headers.origin
+  const allowedURL = [
+    'https://s0npari11.github.io',
+    'https://s0npari11.github.io/bazarbhao-frontend/',
+    'http://localhost:3000'
+  ]
+  const origin = req.headers.origin;
   
-  if(allowedURL.includes(origin){
-    res.header("Access-Control-Allow-Origin", allowedURL);
+  if(allowedURL.includes(origin)){
+    res.header("Access-Control-Allow-Origin", origin);
   }
   res.header(
     "Access-Control-Allow-Headers",
@@ -27,5 +31,5 @@ app.all('/*',(req, res, next) => {
 app.use('/', require('./routes/info'))
 
 app.listen(process.env.PORT || 3001, () => {
-    console.log('Server running on port 3001')
+    console.log('Server running!!')
 })
